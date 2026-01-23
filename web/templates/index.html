@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Flex Sheet</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </head>
+
+    <body class="bg-dark">
+        <div class="container w-50 mt-5 text-light">
+            <h2>FlexSheet Manager</h2>
+            <br>
+            <div class="row">
+                <form class="text-light col-md-3" method="{{ 'GET' if clocked_out else 'POST' }}" action="{{ '/change' if clocked_out else '/update' }}">
+                    <input type="submit" class="form-control btn btn-primary" style="max-width: 200px;" value="{{button_label}}">
+                </form>
+                <form class="text-light col-md-3" method="GET" action="/download">
+                    <input type="submit" class="form-control btn btn-primary" style="max-width: 200px;" value="Download">
+                </form>
+            </div>
+        </div>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>
