@@ -10,9 +10,17 @@ class FlexSheet:
     def __init__(self, flexsheet_path: str):
         self.path = flexsheet_path
         self.temp = None
+
+        self.compiler = None
+        self.data_book = None
+        self.book = None
+
         self.load()
     
     def load(self):
+        if self.book is not None:
+            self.book.close()
+
         self.compiler = xlcalculator.ModelCompiler()
         self.data_book = xlcalculator.Evaluator(
             self.compiler.read_and_parse_archive(self.path)
@@ -81,6 +89,7 @@ class FlexSheet:
         sheet["K7"].value = carried_hours.value
         sheet["L7"].value = carried_mins.value
         new_book.save(self.path)
+        new_book.close()
 
         self.load()
 
